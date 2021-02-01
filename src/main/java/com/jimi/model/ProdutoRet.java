@@ -23,6 +23,17 @@ public class ProdutoRet {
     public ProdutoRet() {
     }
 
+    public ProdutoRet(String codigoProdutoErp, String descricao, String preco, Integer tipoProduto, String codigoBarras, Boolean ativo) {
+        this.codigoProdutoErp = codigoProdutoErp;
+        this.descricao = descricao;
+        this.preco = preco;
+        this.tipoProduto = tipoProduto;
+        this.codigoBarras = codigoBarras;
+        this.ativo = ativo;
+    }
+    
+    
+
     public String getCodigoProdutoErp() {
         return codigoProdutoErp;
     }

@@ -19,23 +19,23 @@ import kong.unirest.Unirest;
 public class JimiProdutoService {
 
     public Produto listar() {
-        return Unirest.get("https://private-anon-bc9a2ef489-jimirobo.apiary-proxy.com/thirdpartycontroller/v2/produto" + API.token)
+        return Unirest.get("http://3.212.28.157:1690/thirdpartycontroller/v2/produto" + API.token)
                 .asObject(Produto.class).getBody();
     }
 
     public RetornoBase criarEditar(ProdutoRet produto) {
-        return Unirest.post("https://private-anon-bc9a2ef489-jimirobo.apiary-proxy.com/thirdpartycontroller/v2/produto" + API.token)
+        return Unirest.post("http://3.212.28.157:1690/thirdpartycontroller/v2/produto" + API.token)
                 .body(produto)
                 .asObject(RetornoBase.class).getBody();
     }
 
     public RetornoBase excluir(String codigoERP) {
-        return Unirest.delete("https://private-anon-bc9a2ef489-jimirobo.apiary-proxy.com/thirdpartycontroller/v2/produto" + API.token + "codigoProdutoErp=" + codigoERP)
+        return Unirest.delete("http://3.212.28.157:1690/thirdpartycontroller/v2/produto" + API.token + "codigoProdutoErp=" + codigoERP)
                 .asObject(RetornoBase.class).getBody();
     }
 
     public RetornoBase excluirTodos() {
-        return Unirest.delete("https://private-anon-bc9a2ef489-jimirobo.apiary-proxy.com/thirdpartycontroller/v2/produto" + API.token)
+        return Unirest.delete("http://3.212.28.157:1690/thirdpartycontroller/v2/produto" + API.token)
                 .asObject(RetornoBase.class).getBody();
     }
 }

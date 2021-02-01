@@ -12,7 +12,7 @@ package com.jimi.config;
 public class API {
 
     public static String base_URL = "http://3.212.28.157:1690/";
-    public static String token = "?token=A31F";
+    public static String token = "?token=8lDa2oJhl0MoIbKtrFTw";
 
     public API() {
     }

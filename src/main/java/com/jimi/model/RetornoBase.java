@@ -33,4 +33,9 @@ public class RetornoBase {
         this.ok = ok;
     }
 
+    @Override
+    public String toString() {
+        return "RetornoBase{" + "msg=" + msg + ", ok=" + ok + '}';
+    }
+
 }

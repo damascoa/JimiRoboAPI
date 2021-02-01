@@ -24,12 +24,12 @@ public class JimmiPedidoService {
     }
 
     public Pedido buscar() {
-        return Unirest.get("https://private-anon-bc9a2ef489-jimirobo.apiary-proxy.com/robo/v3/buscapedidos" + API.token)
+        return Unirest.get("http://3.212.28.157:1690/robo/v3/buscapedidos" + API.token)
                 .asObject(Pedido.class).getBody();
     }
 
     public RetornoBase fechar(String comanda) {
-        return Unirest.get("https://private-anon-bc9a2ef489-jimirobo.apiary-proxy.com/robo/v3/fechapedidos" + API.token + "&comanda=" + comanda)
+        return Unirest.get("http://3.212.28.157:1690/robo/v3/fechapedidos" + API.token + "&comanda=" + comanda)
                 .asObject(RetornoBase.class).getBody();
     }
 }

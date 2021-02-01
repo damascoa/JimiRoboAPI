@@ -18,13 +18,13 @@ import kong.unirest.Unirest;
 public class JimmiEmpresaService {
 
     public Empresa consultar() {
-//        return Unirest.get("https://private-anon-bc9a2ef489-jimirobo.apiary-proxy.com/thirdpartycontroller/v2/configuracaoempresa" + API.token)
+//        return Unirest.get("http://3.212.28.157:1690/thirdpartycontroller/v2/configuracaoempresa" + API.token)
         return Unirest.get("http://3.212.28.157:1690/thirdpartycontroller/v2/configuracaoempresa" + API.token)
                 .asObject(Empresa.class).getBody();
     }
 
     public RetornoBase editar(EmpresaRet obj) {
-        return Unirest.put("https://private-anon-bc9a2ef489-jimirobo.apiary-proxy.com/thirdpartycontroller/v2/configuracaoempresa" + API.token)
+        return Unirest.put("http://3.212.28.157:1690/thirdpartycontroller/v2/configuracaoempresa" + API.token)
                 .body(obj)
                 .asObject(RetornoBase.class).getBody();
     }
