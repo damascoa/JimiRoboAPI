@@ -14,10 +14,14 @@ public class EmpresaRet {
     private String nomeFantasia;
     private String ipServidor;
     private Boolean imprimeCodigoEtiqueta;
-    private Boolean truncarValor;
+    private Boolean trucarValor;
     private Integer qtdeEnter;
 
     public EmpresaRet() {
+    }
+
+    public EmpresaRet(String ipServidor) {
+        this.ipServidor = ipServidor;
     }
 
     public String getNomeFantasia() {
@@ -44,12 +48,12 @@ public class EmpresaRet {
         this.imprimeCodigoEtiqueta = imprimeCodigoEtiqueta;
     }
 
-    public Boolean getTruncarValor() {
-        return truncarValor;
+    public Boolean getTrucarValor() {
+        return trucarValor;
     }
 
-    public void setTruncarValor(Boolean truncarValor) {
-        this.truncarValor = truncarValor;
+    public void setTrucarValor(Boolean trucarValor) {
+        this.trucarValor = trucarValor;
     }
 
     public Integer getQtdeEnter() {
@@ -58,6 +62,11 @@ public class EmpresaRet {
 
     public void setQtdeEnter(Integer qtdeEnter) {
         this.qtdeEnter = qtdeEnter;
+    }
+
+    @Override
+    public String toString() {
+        return "EmpresaRet{" + "nomeFantasia=" + nomeFantasia + ", ipServidor=" + ipServidor + ", imprimeCodigoEtiqueta=" + imprimeCodigoEtiqueta + ", trucarValor=" + trucarValor + ", qtdeEnter=" + qtdeEnter + '}';
     }
 
 }

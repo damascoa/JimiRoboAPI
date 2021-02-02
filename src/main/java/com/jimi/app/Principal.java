@@ -5,10 +5,8 @@
  */
 package com.jimi.app;
 
-import com.jimi.model.Produto;
-import com.jimi.model.ProdutoRet;
-import com.jimi.model.RetornoBase;
-import com.jimi.services.JimiProdutoService;
+import com.jimi.model.Pedido;
+import com.jimi.services.JimmiPedidoService;
 
 /**
  *
@@ -21,12 +19,25 @@ public class Principal {
 //        Empresa se = service.consultar();
 //        System.out.println(se);
 
-        JimiProdutoService service = new JimiProdutoService();
+//        JimiProdutoService service = new JimiProdutoService();
 
-        RetornoBase rb = service.criarEditar(new ProdutoRet("0001", "Self Service", "29.90", 0, null, Boolean.TRUE));
-        System.out.println(rb);
-        Produto prod = service.listar();
-        System.out.println(prod);
+//        RetornoBase rb = service.criarEditar(new ProdutoRet("0002", "Self Service Salada", "19.90", 0, null, Boolean.TRUE));
+//        System.out.println(rb);
+//        Produto prod = service.listar();
+//        System.out.println(prod);
+//        JimmiPedidoService pservice = new JimmiPedidoService();
+//        RetornoBase rb = pservice.simular(new PedidoRet(1, BigDecimal.ONE, new BigDecimal(29.90), "00001", new Date()));
+//        System.out.println(rb);
+
+//        Pedido pedido = pservice.buscar();
+//        System.out.println(pedido);
+//        JimmiEmpresaService empresaService = new JimmiEmpresaService();
+//        Empresa empresa = empresaService.consultar();
+//        System.out.println(empresa);
+//        empresa.getRet().setIpServidor("192.168.15.6");
+//        System.out.println(empresa.getRet());
+////        RetornoBase rb = empresaService.editar(empresa.getRet());
+//        System.out.println(rb);
 
     }
 }

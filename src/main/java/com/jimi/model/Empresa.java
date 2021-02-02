@@ -42,4 +42,11 @@ public class Empresa {
         this.ret = ret;
     }
 
+    @Override
+    public String toString() {
+        return "Empresa{" + "ok=" + ok + ", msg=" + msg + ", ret=" + ret + '}';
+    }
+    
+    
+
 }

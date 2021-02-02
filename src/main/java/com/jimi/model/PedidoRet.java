@@ -5,6 +5,11 @@
  */
 package com.jimi.model;
 
+import java.math.BigDecimal;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  *
  * @author Renato
@@ -19,6 +24,20 @@ public class PedidoRet {
     private String hora;
 
     public PedidoRet() {
+    }
+
+    private String formataData(Date data, String pattern) {
+        DateFormat df = new SimpleDateFormat(pattern);
+        return df.format(data);
+    }
+
+    public PedidoRet(Integer codProdutoErp, BigDecimal quantidade, BigDecimal valorTotal, String comanda, Date data) {
+        this.codProdutoErp = codProdutoErp;
+        this.quantidade = quantidade.toString();
+        this.valorTotal = valorTotal.toString();
+        this.comanda = comanda;
+        this.data = formataData(data, "dd-MM-yyyy");
+        this.hora = formataData(data, "HH:mm:ss");;
     }
 
     public Integer getCodProdutoErp() {

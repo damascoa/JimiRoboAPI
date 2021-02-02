@@ -6,6 +6,7 @@
 package com.jimi.services;
 
 import com.jimi.config.API;
+import com.jimi.config.Auth;
 import com.jimi.model.Empresa;
 import com.jimi.model.Produto;
 import com.jimi.model.ProdutoRet;
@@ -18,24 +19,30 @@ import kong.unirest.Unirest;
  */
 public class JimiProdutoService {
 
+    private Auth auth;
+
+    public JimiProdutoService(Auth auth) {
+        this.auth = auth;
+    }
+
     public Produto listar() {
-        return Unirest.get("http://3.212.28.157:1690/thirdpartycontroller/v2/produto" + API.token)
+        return Unirest.get(auth.getUrlBase() + "/thirdpartycontroller/v2/produto" + auth.getToken())
                 .asObject(Produto.class).getBody();
     }
 
     public RetornoBase criarEditar(ProdutoRet produto) {
-        return Unirest.post("http://3.212.28.157:1690/thirdpartycontroller/v2/produto" + API.token)
+        return Unirest.post(auth.getUrlBase() + "/thirdpartycontroller/v2/produto" + auth.getToken())
                 .body(produto)
                 .asObject(RetornoBase.class).getBody();
     }
 
     public RetornoBase excluir(String codigoERP) {
-        return Unirest.delete("http://3.212.28.157:1690/thirdpartycontroller/v2/produto" + API.token + "codigoProdutoErp=" + codigoERP)
+        return Unirest.delete(auth.getUrlBase() + "/thirdpartycontroller/v2/produto" + auth.getToken() + "codigoProdutoErp=" + codigoERP)
                 .asObject(RetornoBase.class).getBody();
     }
 
     public RetornoBase excluirTodos() {
-        return Unirest.delete("http://3.212.28.157:1690/thirdpartycontroller/v2/produto" + API.token)
+        return Unirest.delete(auth.getUrlBase() + "/thirdpartycontroller/v2/produto" + auth.getToken())
                 .asObject(RetornoBase.class).getBody();
     }
 }

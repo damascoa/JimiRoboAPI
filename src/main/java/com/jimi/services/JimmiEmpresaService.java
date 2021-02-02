@@ -5,7 +5,9 @@
  */
 package com.jimi.services;
 
+import com.google.gson.Gson;
 import com.jimi.config.API;
+import com.jimi.config.Auth;
 import com.jimi.model.Empresa;
 import com.jimi.model.EmpresaRet;
 import com.jimi.model.RetornoBase;
@@ -17,14 +19,19 @@ import kong.unirest.Unirest;
  */
 public class JimmiEmpresaService {
 
+    private Auth auth;
+
+    public JimmiEmpresaService(Auth auth) {
+        this.auth = auth;
+    }
+
     public Empresa consultar() {
-//        return Unirest.get("http://3.212.28.157:1690/thirdpartycontroller/v2/configuracaoempresa" + API.token)
-        return Unirest.get("http://3.212.28.157:1690/thirdpartycontroller/v2/configuracaoempresa" + API.token)
+        return Unirest.get(auth.getUrlBase() + "/thirdpartycontroller/v2/configuracaoempresa" + auth.getToken())
                 .asObject(Empresa.class).getBody();
     }
 
     public RetornoBase editar(EmpresaRet obj) {
-        return Unirest.put("http://3.212.28.157:1690/thirdpartycontroller/v2/configuracaoempresa" + API.token)
+        return Unirest.put(auth.getUrlBase() + "/thirdpartycontroller/v2/configuracaoempresa" + auth.getToken())
                 .body(obj)
                 .asObject(RetornoBase.class).getBody();
     }

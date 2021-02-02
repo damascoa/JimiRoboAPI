@@ -5,7 +5,9 @@
  */
 package com.jimi.services;
 
+import com.google.gson.Gson;
 import com.jimi.config.API;
+import com.jimi.config.Auth;
 import com.jimi.model.Pedido;
 import com.jimi.model.PedidoRet;
 import com.jimi.model.RetornoBase;
@@ -17,19 +19,28 @@ import kong.unirest.Unirest;
  */
 public class JimmiPedidoService {
 
+    private Auth auth;
+
+    public JimmiPedidoService(Auth auth) {
+        this.auth = auth;
+    }
+
     public RetornoBase simular(PedidoRet obj) {
-        return Unirest.post("http://private-anon-bc9a2ef489-jimirobo.apiary-proxy.com/robo/v3/simulapedido" + API.token)
+        return Unirest.post(auth.getUrlBase() + "/robo/v3/simulapedido" + auth.getToken())
                 .body(obj)
                 .asObject(RetornoBase.class).getBody();
     }
 
     public Pedido buscar() {
-        return Unirest.get("http://3.212.28.157:1690/robo/v3/buscapedidos" + API.token)
-                .asObject(Pedido.class).getBody();
+        String saida = Unirest.get(auth.getUrlBase() + "/robo/v3/buscapedidos" + auth.getToken())
+                .asString().getBody();
+        System.out.println(saida);
+        return new Gson().fromJson(saida, Pedido.class);
+
     }
 
     public RetornoBase fechar(String comanda) {
-        return Unirest.get("http://3.212.28.157:1690/robo/v3/fechapedidos" + API.token + "&comanda=" + comanda)
+        return Unirest.get(auth.getUrlBase() + "/robo/v3/fechapedidos" + auth.getToken() + "&comanda=" + comanda)
                 .asObject(RetornoBase.class).getBody();
     }
 }
